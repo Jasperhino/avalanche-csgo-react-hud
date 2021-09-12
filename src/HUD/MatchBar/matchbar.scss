@@ -32,6 +32,9 @@
 	flex-direction: row;
 	justify-content: center;
 	height: 70px;
+	background-color: var(--main-panel-color);
+	clip-path: polygon(1.5vw 0%, calc(100% - 1.5vw) 0%, 100% 100%, 0% 100%);
+
 
 	.CT {
 		color: var(--color-new-ct);
@@ -48,8 +51,6 @@
 		width: 140px;
 		height: 70px;
 		font-weight: 200;
-		z-index: -1;
-		background-color: var(--main-panel-color);
 	}
 
 	#bomb_container {
@@ -138,7 +139,8 @@
 			align-items: center;
 			justify-content: center;
 			overflow: hidden;
-			background-color: var(--main-panel-color);
+			margin-left: 40px;
+			margin-right: 40px;
 
 			.logo {
 				display: flex;
@@ -146,8 +148,8 @@
 			}
 
 			img {
-				max-width: 55%;
-				max-height: 55%;
+				width: 50px;
+				height: 50px;
 				border-radius: 50%;
 			}
 		}
@@ -169,26 +171,25 @@
 		justify-content: center;
 		font-weight: 600;
 		font-size: 30px;
-		background-color: var(--main-panel-color);
 	}
 
 	.team-name {
 		font-weight: 600;
 		font-size: 30px;
-
 	}
 
 	.score {
 		display: flex;
 		flex-direction: row;
-		width: 55px;
-		height: 69px;
+		width: 80px;
+		height: 70px;
 		align-items: center;
 		justify-content: center;
 		font-weight: 600;
 		font-size: 36px;
 		color: var(--white-full);
 		text-shadow: 0 1px 3px black;
+		z-index: 1;
 
 		&.CT {
 			background-color: var(--color-new-ct);
@@ -197,27 +198,14 @@
 		&.T {
 			background-color: var(--color-new-t);
 		}
-	}
-
-	.skew {
-		-webkit-backface-visibility: hidden;
-		transform-origin: right bottom;
-
-		&.left, .left {
-			transform: skewX(-20deg);
+		&.left {
+			clip-path: polygon(1.5vw 0%, 100% 0%, calc(100% - 1.5vw) 100%, 0% 100%);
+			transform: translateX(1.5vw);
 		}
-
-		&.right, .right {
-			transform: skewX(20deg);
+		&.right {
+			clip-path: polygon(0 0, calc(100% - 1.5vw) 0, 100% 100%, 1.5vw 100%);
+			transform: translateX(-1.5vw);
 		}
-	}
-
-	.left .unskew {
-		transform: skewX(20deg);
-	}
-
-	.right .unskew {
-		transform: skewX(-20deg);
 	}
 
 	.bar {

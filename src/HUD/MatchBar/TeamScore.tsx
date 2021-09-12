@@ -12,9 +12,9 @@ export default class TeamScore extends React.Component<IProps> {
     const { orientation, team } = this.props;
     return (
       <>
-        <div className={`team skew ${orientation} ${team.side}`}>
+        <div className={`team ${orientation} ${team.side}`}>
           <div className="team-name-container">
-              <div className="team-name unskew">{team.name}</div></div>
+              <div className="team-name">{team.name}</div></div>
           <TeamLogo team={team} />
         </div>
       </>
